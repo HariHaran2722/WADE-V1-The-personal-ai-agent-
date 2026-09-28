@@ -38,3 +38,25 @@ fi
 echo "Starting Wade on http://127.0.0.1:${WADE_PORT}"
 python3 wade_server.py &
 SERVER_PID=$!
+trap 'kill "$SERVER_PID" 2>/dev/null' EXIT
+
+for _ in $(seq 1 20); do
+  if curl -s "http://127.0.0.1:${WADE_PORT}" >/dev/null 2>&1; then break; fi
+  sleep 0.5
+done
+
+URL="http://127.0.0.1:${WADE_PORT}"
+if command -v notify-send >/dev/null 2>&1; then
+  notify-send "Wade" "Ready at $URL" 2>/dev/null || true
+fi
+if command -v xdg-open >/dev/null 2>&1; then
+  xdg-open "$URL" >/dev/null 2>&1 &
+elif command -v termux-open-url >/dev/null 2>&1; then
+  termux-open-url "$URL"
+elif command -v open >/dev/null 2>&1; then
+  open "$URL"
+else
+  echo "Open this in your browser: $URL"
+fi
+
+wait "$SERVER_PID"
