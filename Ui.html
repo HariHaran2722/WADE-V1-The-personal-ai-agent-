@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wade</title>
+<style>
+  :root{
+    --bg-0:#060a13;
+    --bg-1:#0b1220;
+    --panel: rgba(15, 23, 40, 0.85);
+    --border: #1d2b45;
+    --text: #dce6fb;
+    --text-dim: #7d8fb3;
+    --teal: #34e0c4;
+    --violet: #9b8cff;
+    --coral: #ff6b81;
+    --radius: 14px;
+    --font: "Segoe UI", system-ui, -apple-system, "Noto Sans Tamil", "Tamil Sangam MN", Roboto, sans-serif;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  *{ box-sizing: border-box; }
+  html, body{ height: 100%; margin: 0; }
+  body{
+    font-family: var(--font);
+    color: var(--text);
+    background:
+      radial-gradient(ellipse at 50% -12%, #16233f 0%, transparent 55%),
+      var(--bg-0);
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar{ width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb{ background: var(--border); border-radius: 4px; }
+
+  #app{ display: flex; flex-direction: column; height: 100vh; }
+
+  /* ---------- header ---------- */
+  header{
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px; border-bottom: 1px solid var(--border);
