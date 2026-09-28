@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Wade
+Comment=Start your local AI agent
+Exec=/home/YOURNAME/wade/wade_start.sh
+Icon=utilities-terminal
+Terminal=true
+Categories=Utility;
